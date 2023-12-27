@@ -75,7 +75,8 @@ export const App = () =>{
       <div class="w-full max-w-3xl md:w-auto px-10 mx-auto mt-8 my-6 transition duration-500 ease-in-out transform bg-white rounded-lg md:mt-0">
         <h1 className="font-bold mb-4 text-3xl text-center">Todo アプリ</h1>
           <div class="w-full mx-auto">
-            <h2 className="text-2xl font-bold mb-2">todoリスト新規作成</h2>
+            <div  className="bg-yellow-50 p-8 mb-12">
+              <h2 className="text-2xl font-bold mb-2">todoリスト新規作成</h2>
                     {isEditable ? (
                                     <div className="flex items-center flex-wrap">
                                         <input type="text" value={newTitle} onChange={handleEditFormChange} name="" id="" label="新しいタイトル" className="w-2/5 px-5 py-3 mr-4 text-base text-neutral-600 placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" />
@@ -83,7 +84,7 @@ export const App = () =>{
                                           <button onClick={handleEditTodo} className="w-50 px-10 py-4 mr-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-blue-700 rounded-xl hover:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                                             編集を保存
                                           </button>
-                                          <button onClick={handleCloseEditForm} className="w-50 px-10 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-blue-700 rounded-xl hover:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                          <button onClick={handleCloseEditForm} className="w-50 px-10 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-gray-700 rounded-xl hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
                                             キャンセル
                                           </button>
                                         </div>
@@ -91,25 +92,28 @@ export const App = () =>{
                                   ) : (
                                     <div className="flex items-center justify-start mt-4">
                                       <input type="text" name="" id="" label="タイトル" value={todoTitle} onChange={handleAddFormChanges} className="block w-2/5 px-5 py-3 mr-4 text-base text-neutral-600 placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300"/>
-                                      <button onClick={addTodos} className="w-50 px-10 py-4  mr-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-red-700 rounded-xl hover:bg-red-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-600">
+                                      <button onClick={addTodos} className="w-50 px-10 py-4  mr-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-green-700 rounded-xl hover:bg-green-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600">
                                         todo作成！
                                       </button>
                                     </div>
                     )}
+            </div>
 
-            <h2 className="text-2xl font-bold mt-4 mb-4">作成したtodo リスト</h2>
-            <ul>
-              {todos.map((todo) =>
-              <li key={todo.id} className="flex items-center flex-wrap w-full mb-4">
-                <span className="block w-2/5 mr-4">{todo.title}</span>
-                <button onClick={() => handleOpenEditForm(todo)} className="w-50 px-10 py-4  mr-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-blue-700 rounded-xl hover:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                  totoを編集
-                </button>
-                <button onClick={() => handleDeleteTodo(todo)} className="w-50 px-10 py-4  mr-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-red-700 rounded-xl hover:bg-red-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-600">
-                  todo削除！
-                </button>
-              </li>)}
-              </ul>
+            <div  className="bg-green-50 p-8 mb-12">
+              <h2 className="text-2xl font-bold mt-4 mb-4">作成したtodo リスト</h2>
+                <ul>
+                  {todos.map((todo) =>
+                  <li key={todo.id} className="flex items-center flex-wrap w-full mb-4">
+                    <span className="block w-2/5 mr-4">{todo.title}</span>
+                    <button onClick={() => handleOpenEditForm(todo)} className="w-50 px-10 py-4  mr-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-blue-700 rounded-xl hover:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                      totoを編集
+                    </button>
+                    <button onClick={() => handleDeleteTodo(todo)} className="w-50 px-10 py-4  mr-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-red-700 rounded-xl hover:bg-red-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-600">
+                      todo削除！
+                    </button>
+                  </li>)}
+                </ul>
+            </div>
           </div>
       </div>
     </div>
